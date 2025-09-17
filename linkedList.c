@@ -83,6 +83,17 @@ void display() {
 
 void insert() {
     struct node*temp2;
+	int val;
+	 temp2 = (struct node*)malloc(sizeof(struct node));
+    if (temp2 == NULL) {
+        printf("Memory could not be allocated\n");
+    } else{
+
+    printf("Enter the data to be inserted: ");
+    scanf("%d", &val);
+}  
+    temp2->data = val;
+    temp2->next = NULL;
     
 
 }
