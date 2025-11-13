@@ -243,7 +243,29 @@ void del_beg() {
 	free(temp);
 }
 
-void del_end();
+void del_end(){
+    if(head==NULL){
+        printf("nothing to delete as the list is empty\n");
+        return;
+    }
+    if(head->next==NULL){
+        printf("node with data %d is deleted from the list\n",head->data);
+        free(head);
+        head=NULL;
+        return;
+    }
+    struct node * last ;
+    struct node * prev_of_last = NULL;
+    last = head ; // traversal
+    while(last->next != NULL){
+        prev_of_last = last ;
+        last = last->next;
+    }
+    printf("node with data %d deleted from the list \n",last->data);
+    prev_of_last->next = NULL;
+    free(last);
+    
+}
 void del_pos();
 void del_before_pos();
 void del_after_pos();
@@ -348,6 +370,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
