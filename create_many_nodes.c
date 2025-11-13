@@ -215,5 +215,115 @@ void insert_before_pos() {
 	}
 
 }
+void del_beg();
+void del_end();
+void del_pos();
+void del_before_pos();
+void del_after_pos();
+
+// void reverse();
+// void length();
+// void middle();
+//will do after learning tortoise and hare pointers
+
+
+
+int main() {
+    int choice, n;
+
+    while (1) {  
+        
+        printf("\n\n--- LINKED LIST MENU ---\n");
+        printf("1. Create a single node\n");
+        printf("2. Create multiple nodes\n");
+        printf("3. Display the linked list\n");
+        printf("4. Insert at beginning\n");
+        printf("5. Insert at end\n");
+        printf("6. Insert at specific position\n");
+        printf("7. Insert after a position\n");
+        printf("8. Insert before a position\n");
+        printf("9. Delete from beginning\n");
+        printf("10. Delete from end\n");
+        printf("11. Delete at specific position\n");
+        printf("12. Delete after position\n");
+        printf("13. Delete before position\n");
+        printf("14. Exit\n");
+        printf("-------------------------\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            
+            case 1:
+                create_1_node();
+                break;
+
+            case 2:
+                printf("Enter number of nodes to create: ");
+                scanf("%d", &n);
+                create_many_nodes(n);
+                break;
+
+            case 3:
+                display();
+                break;
+
+            case 4:
+                insert_at_beg();
+                break;
+
+            case 5:
+                insert_at_end();
+                break;
+
+            case 6:
+                insert_at_pos();
+                break;
+
+            case 7:
+                insert_after_pos();
+                break;
+
+            case 8:
+                insert_before_pos();
+                break;
+
+            case 9:
+                del_beg();
+                break;
+
+            case 10:
+                del_end();
+                break;
+
+            case 11:
+                del_pos();
+                break;
+
+            case 12:
+                del_after_pos();
+                break;
+
+            case 13:
+                del_before_pos();
+                break;
+
+            case 14:
+                printf("Exiting program.\n");
+                exit(0);
+                break;
+
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    }
+
+    return 0;
+}
+
+
+
+
 
 
