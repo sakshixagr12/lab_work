@@ -8,6 +8,19 @@ struct node
     struct node *next;
 };
 struct node *head = NULL;
+
+void create_1_node() {
+	struct node * temp = ( struct node *)malloc(sizeof(struct node));
+	if(temp ==NULL) {
+		printf("memory allocation failed !\n");
+		return ;
+	} else {
+		printf("enter the value\n");
+		scanf("%d",&temp->data);
+		temp->next=NULL;
+		head = temp;
+	}
+}
 void create_many_nodes(int n)
 {
     struct node *temp = NULL;
@@ -321,6 +334,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
