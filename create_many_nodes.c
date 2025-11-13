@@ -228,7 +228,21 @@ void insert_before_pos() {
 	}
 
 }
-void del_beg();
+void del_beg() {
+
+	struct node * temp = head ;
+
+	if(head == NULL) {
+		printf("nothing to delete as the list is empty\n");
+		return ;
+	}
+
+	struct node * temp = head ;
+	head= head->next;
+	printf("node with data %d is deleted from beginning \n",temp->data);
+	free(temp);
+}
+
 void del_end();
 void del_pos();
 void del_before_pos();
@@ -334,6 +348,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
