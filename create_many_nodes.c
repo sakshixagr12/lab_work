@@ -33,4 +33,45 @@ void create_many_nodes(int n)
             }
             temp = newNode;
         }
+
     }
+
+void insert_at_beg() {
+	struct node * temp = (struct node *)malloc(sizeof(struct node));
+	if ( temp ==  NULL) {
+		printf ( " memory allocation failed !\n");
+		return;
+	}
+	else {
+	    printf("enter the value\n");
+	    scanf("%d",&temp->data);
+	    temp->next=head;
+	    
+	    head=temp;
+	    printf("Node inserted at the beginning successfully.\n");
+	}
+}
+
+void insert_at_end() {
+    struct node * temp = (struct node *) malloc(sizeof(struct node));
+    if(temp ==NULL){
+        printf("memory allocation failed!\n");
+        return;
+    } else {
+        struct node * temp1;
+        printf("enter the data\n");
+        scanf("%d",&temp->data);
+        temp->next=NULL;
+        if(head == NULL) head=temp;
+        else {
+        struct node * temp1=head;
+        while(temp1->next != NULL) {
+            temp1 = temp1->next;
+           
+        }
+            temp1->next= temp;
+        }
+        printf("element inserted at end successfully!\n");
+        
+    }
+}
