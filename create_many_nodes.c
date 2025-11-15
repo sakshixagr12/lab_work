@@ -309,8 +309,71 @@ void del_pos() {
     free(temp);
 }
 
-void del_before_pos();
-void del_after_pos();
+void del_before_pos(){
+    if(head == NULL) {
+        printf("list is empty, nothing to delete\n");
+        return;
+    }
+    int pos ;
+    printf("enter the position before which you want to delete\n");
+    scanf("%d",&pos);
+    if(pos <=1) {
+        printf("no node exists before position %d\n", pos);
+        return;
+    }
+    struct node *temp = head;
+    struct node *prev = NULL;
+    if(pos==2){
+        head=head->next;
+        printf("node with data %d is deleted before position %d\n", temp->data, pos);
+        free(temp);v
+        return;
+    }
+
+    for(int i =3 ;i<pos-1 && temp != NULL ; i++){
+        prev = temp;
+        temp = temp->next;
+    }
+    if(temp == NULL) {
+        printf("invalid position\n");
+        return;
+    }
+    prev->next = temp->next;
+    printf("node with data %d is deleted before position %d\n", temp->data, pos);
+    free(temp);
+}
+
+void del_after_pos(){
+    if(head == NULL) {
+        printf("list is empty, nothing to delete\n");
+        return;
+    }
+    int pos;
+    printf("enter the position after which you want to delete\n");
+    scanf("%d",&pos);
+    if(pos<=0)
+    {
+        printf("invalid position\n");
+        return;
+    }
+    struct node *temp = head;
+ 
+
+    for(int i=1;i<pos && temp != NULL ; i++){
+        temp = temp->next;
+    
+    }
+    if (temp==NULL || temp->next==NULL)
+{
+    printf("no node exists after position %d\n", pos);
+    return;
+}
+    struct node * del = temp->next;
+    temp->next = del->next;
+    printf("node with data %d is deleted after position %d\n", del->data, pos);
+    free(del);
+
+}
 
 // void reverse();
 // void length();
@@ -412,6 +475,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
