@@ -256,7 +256,7 @@ void del_end(){
     }
     struct node * last ;
     struct node * prev_of_last = NULL;
-    last = head ; // traversal
+    last = head ; 
     while(last->next != NULL){
         prev_of_last = last ;
         last = last->next;
@@ -266,7 +266,49 @@ void del_end(){
     free(last);
     
 }
-void del_pos();
+void del_pos() {
+
+    if (head == NULL) {
+        printf("list is empty, nothing to delete\n");
+        return;
+    }
+
+    int pos;
+    printf("enter the position to delete\n");
+    scanf("%d", &pos);
+
+    if (pos <= 0) {
+        printf("invalid position\n");
+        return;
+    }
+
+    struct node* temp = head;
+    struct node* prev = NULL;
+
+    
+    if (pos == 1) {
+        head = head->next;
+        printf("node with data %d is deleted from position %d\n", temp->data, pos);
+        free(temp);
+        return;
+    }
+
+    
+    for (int i = 1; i < pos && temp != NULL; i++) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (temp == NULL) {
+        printf("invalid position\n");
+        return;
+    }
+
+    prev->next = temp->next;
+    printf("node with data %d is deleted from position %d\n", temp->data, pos);
+    free(temp);
+}
+
 void del_before_pos();
 void del_after_pos();
 
@@ -370,6 +412,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
